@@ -1,0 +1,20 @@
+#header{
+    margin-top: 10px;
+}
+
+#user{
+    width: 140px;
+    height: 140px;
+}
+
+p span strong {
+    font-size: 200%;
+}
+
+#body div div {
+    float:left;
+    margin: 5px;
+    border: 2px solid black;
+    height: 130px;
+    width: 170px;
+}
