@@ -111,9 +111,32 @@ $(document).ready(function(){
 
     });
 
-    $(".uml-class-attrs-text").dblclick(); //le sigue un tspan este es el nombre
-    $(".uml-class-attrs-text").dblclick(); //rpimary key
-    $(".uml-class-methods-text").dblclick(); //atts
+    $(".uml-class-attrs-text").dblclick(function(){
+        swal({
+          title: "Nombre de Entidad",
+          text: "Ingrese nombre entidad:",
+          type: "input",
+          showCancelButton: true,
+          closeOnConfirm: false,
+          animation: "slide-from-top",
+          inputPlaceholder: "Entity"
+        },
+        function(inputValue){
+          if (inputValue === false) return false;
+
+          if (inputValue === "") {
+            swal.showInputError("Inserte por favor nombre");
+            return false
+            $(this).find("tspan").text(inputValue);
+          }
+      });
+    }); //le sigue un tspan este es el nombre
+    $(".uml-class-attrs-text").dblclick(function(){
+        $(this).attr("contenteditable");
+    }); //rpimary key
+    $(".uml-class-methods-text").dblclick(function(){
+        $(this).attr("contenteditable");
+    }); //atts
     _.each(entities, function(c) { graph.addCell(c); });
 
     $("#save").click(function(){
