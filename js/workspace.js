@@ -127,5 +127,5 @@ $(document).ready(function(){
           graph.fromJSON(data);
         });
     });
-
+    $('select').material_select();
 });
