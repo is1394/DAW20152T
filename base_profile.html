@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="en" ng-app="project">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,84 +12,80 @@
     <link href="css/materialize.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
+    <script src="js/jquery.min.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <script src="js/script_materialize.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="js/profile.js"></script>
+
   </head>
   <body>
     <nav>
       <ul id="slide-out" class="side-nav fixed">
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#ques">¿Qu&eacute es?</a></li>
-        <li><a href="#ahora">Ahora</a></li>
-        <li><a href="#modal" class="waves-effect waves-light  modal-trigger">Iniciar Sesi&oacuten</a></li>
-        <li><a href="#modal" class="waves-effect waves-light  modal-trigger">Registrarse</a></li>
+        <div class="row">
+          <div class="col s12 m12">
+            <div class="card">
+              <div class="card-image">
+                <img src="img/d.png" class="waves">
+                <span class="card-title">Mansrz</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <li><a href="#inicio">Mis diagramas</a></li>
+        <li><a href="#ques">Compartidos conmigo</a></li>
+        <li><a href="#ahora">Mi perfil</a></li>
+        <li><a href="#modal" class="waves-effect waves-light  modal-trigger">Cerrar sesi&oacuten</a></li>
       </ul>
       <a href="#" data-activates="slide-out" class="button-collapse">
         <i class="mdi-navigation-menu"></i>
       </a>
     </nav>
 
+    <!--
     <header>
       <div class="intro cyan lighten-2 z-depth-1" id="inicio">
         <h1 class="grey-text text-lighten-5"><i style="font-size:1.1em">ERD</i>iagram</h1>
         <h5 clas="grey lighten-4 grey-text text-darken-1">Web tool for diagrams</h5>
       </div>
     </header>
+    -->
 
     <main>
     <div class="container about" id="ques">
-      <h5>¿Qu&eacute es Modeller?</h5>
-      <h6>Permite mostrar el sitio</h6>
-      <hr>
-      <div class="row">
-        <div class="col s12 m6 l6">
-          <h6>Antecedentes</h6>
-          <p>
-          Este sitio fue creado porque es una tarea de la materia "desarrollo de aplicaciones web" y hacemos nuestro mejro esfuerzo para entregar un proyecto que cumpla con los objetivos de la materia.
-          </p>
-        </div>
-        <div class="col s12 m6 l6">
-          <h6>Aplicaciones</h6>
-          <ul class="collapsible">
-            <li class="active">
-              <div class="collapsible-header"><i class="mdi-av-web"></i>Diseñar</div>
-              <div class="collapsible-body">
-                <p>Diseñar diagramas</p>
+      <div>
+        <div class="row" ng-controller="mainCtrl">
+          <div class="s10 offset-s1 col">
+            <h2>Diagramas ERD</h2>
+            <h4>Los &uacuteltimos diagramas creados</h4>
+          </div>
+          <div class="s10 offset-s1 col">
+            <div class="row">
+              <div class="col m4 animated fadeInUp"
+                   style="-webkit-animation-duration:{{$index * 300}}ms"
+                   ng-repeat="u in users">
+                <div class="card blue lighten-1">
+                  <div class="card-content center-align">
+                    <div class="card-title truncate">{{u.user.username}}</div>
+                    <img class="circle materialboxed" src="img/example.png" style="width:150px;heigth:150px;">
+                    <p class="blue-text text-darken-4">Diagrama ERD para la clase de base de datos</p>
+                    <br>
+                    <div class="row">
+                      <div class="col m2 hide-on-small-only">&nbsp;</div>
+                      <div class="col m2 s6 center-align"><a href=""><i class="white-text small mdi-action-face-unlock"></i></a></div>
+                      <div class="col m2 s6 center-align"><a href=""><i class="white-text small mdi-action-highlight-remove"></i></a></div>
+                      <div class="col m2 s6 center-align"><a href=""><i class="white-text small mdi-action-alarm-on"></i></a></div>
+                      <div class="col m2 s6 center-align"><a href=""><i class="white-text small mdi-action-account-balance"></i></a></div>
+                      <div class="col m2 .hide-on-small-only">&nbsp;</div>
+                    </div>
+                  </div>
+                  <div class="card-action center-align truncate">
+                    <a href="#" class="blue-text text-darken-4">{{u.user.location.city}}, {{u.user.location.state}}</a>
+                  </div>
+                </div><!--/card-->
               </div>
-            </li>
-            <li>
-              <div class="collapsible-header"><i class="mdi-editor-format-align-justify"></i>Desarrollar</div>
-              <div class="collapsible-body">
-                <p>Pensar antes de desarrollar</p>
-              </div>
-            </li>
-            <li>
-              <div class="collapsible-header"><i class="mdi-av-play-shopping-bag"></i>ERD</div>
-              <div class="collapsible-body">
-                <p>Diagrama entidad relaci&oacuten</p>
-              </div>
-            </li>
-            <li>
-              <div class="collapsible-header"><i class="mdi-editor-insert-comment"></i>Diagrama</div>
-              <div class="collapsible-body">
-                <p>Diagrama entidad relaci&oacuten</p>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="container portfolio" id="ahora">
-      <h5>Comparte</h5>
-      <h6>Revisa los últimos diagramas compartidos</h6>
-      <hr>
-      <div class="row">
-        <div class="col s12 m12 l12 portfolio-holder">
-          <img class="materialboxed" src="http://labs.qnimate.com/portfolio-materialize/images/project.png">
-          <img class="materialboxed" src="http://labs.qnimate.com/portfolio-materialize/images/project.png">
-          <img class="materialboxed" src="http://labs.qnimate.com/portfolio-materialize/images/project.png">
-          <img class="materialboxed" src="http://labs.qnimate.com/portfolio-materialize/images/project.png">
-          <img class="materialboxed" src="http://labs.qnimate.com/portfolio-materialize/images/project.png">
-          <img class="materialboxed" src="http://labs.qnimate.com/portfolio-materialize/images/project.png">
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -139,21 +135,6 @@
                     <label for="last_name">Contraseña</label>
                   </div>
                 </div>
-                <div class="row">
-                  <p>
-                    Por defecto la autenticaci&oacuten se realiza con los datos de epsol
-                  </p>
-                </div>
-                <div class="row">
-                  <div class="col s5"><span>&nbsp</span></div>
-                  <div class="col s1 z-depth-2">
-                    <img src="img/tw.png" height="30px" width="30px">
-                  </div>
-                  <div class="col s1 z-depth-2">
-                    <img src="img/fb.png" height="30px" width="30px">
-                  </div>
-                  <div class="col s5"></div>
-                </div>
               </form>
             </div>
           </div>
@@ -199,8 +180,5 @@
         </a>
       </div>
     </div>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/materialize.min.js"></script>
-    <script src="js/script_materialize.js"></script>
   </body>
 </html>
