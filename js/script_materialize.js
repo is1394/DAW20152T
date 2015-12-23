@@ -1,9 +1,5 @@
 $(document).ready(function(){
-  $('.button-collapse').sideNav({
-    menuWidth: 300, // Default is 240
-    edge: 'right', // Choose the horizontal origin
-    closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
-  });
+  //$('.button-collapse').sideNav({ menuWidth: 300, // Default is 240 edge: 'right', // Choose the horizontal origin closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor });
   $('.materialboxed').materialbox();
   $('ul.tabs').tabs();
   $('.modal-trigger').leanModal({
@@ -14,4 +10,5 @@ $(document).ready(function(){
     ready: function() { console.log('Ready'); }, // Callback for Modal open
     complete: function() { console.log('Closed'); } // Callback for Modal close
   });
+  $(".button-collapse").sideNav();
 });
