@@ -16,7 +16,7 @@ $(document).ready(function(){
     //initialize dropdown materialize
 
     $(".dropdown-button").dropdown();
-
+    $('select').material_select();
 
     var count = 1;
     var name = "entity" + count;
@@ -111,38 +111,15 @@ $(document).ready(function(){
 
     });
 
-    $(".uml-class-attrs-text").dblclick(function(){
-        swal({
-          title: "Nombre de Entidad",
-          text: "Ingrese nombre entidad:",
-          type: "input",
-          showCancelButton: true,
-          closeOnConfirm: false,
-          animation: "slide-from-top",
-          inputPlaceholder: "Entity"
-        },
-        function(inputValue){
-          if (inputValue === false) return false;
-
-          if (inputValue === "") {
-            swal.showInputError("Inserte por favor nombre");
-            return false
-            $(this).find("tspan").text(inputValue);
-          }
-      });
-    }); //le sigue un tspan este es el nombre
-    $(".uml-class-attrs-text").dblclick(function(){
-        $(this).attr("contenteditable");
-    }); //rpimary key
-    $(".uml-class-methods-text").dblclick(function(){
-        $(this).attr("contenteditable");
-    }); //atts
+     //atts
     _.each(entities, function(c) { graph.addCell(c); });
+
 
     $("#save").click(function(){
         var jsonString = JSON.stringify(graph);
         console.log(jsonString);
     });
+
     $("#load").click(function(){
         $.getJSON('json/load.json',function(data){
           graph.clear();
@@ -150,5 +127,79 @@ $(document).ready(function(){
           graph.fromJSON(data);
         });
     });
-    $('select').material_select();
+
+});
+
+//methods for change the labels of the entities
+$(".uml-class-name-text").dblclick(function(){
+    var entity_name = $(this);
+    swal({
+      title: "An input!",
+      text: "Write something interesting:",
+      type: "input",
+      showCancelButton: true,
+      closeOnConfirm: false,
+      animation: "slide-from-top",
+      inputPlaceholder: "Write something"
+    },
+    function(inputValue){
+      if (inputValue === false) return false;
+
+      if (inputValue === "") {
+        swal.showInputError("You need to write something!");
+        return false
+      }
+
+      swal("Excelente!", "", "success");
+      entity_name.find("tspan").text(inputValue);
+
+    });
+});
+$(".uml-class-attrs-text").dblclick(function(){
+    var primary = $(this);
+    swal({
+      title: "An input!",
+      text: "Write something interesting:",
+      type: "input",
+      showCancelButton: true,
+      closeOnConfirm: false,
+      animation: "slide-from-top",
+      inputPlaceholder: "Write something"
+    },
+    function(inputValue){
+      if (inputValue === false) return false;
+
+      if (inputValue === "") {
+        swal.showInputError("You need to write something!");
+        return false
+      }
+
+      swal("Excelente!", "", "success");
+      primary.find("tspan").text(inputValue);
+
+    });
+});
+
+$(".uml-class-methods-text").dblclick(function(){
+    var attrs = $(this);
+    swal({
+      title: "An input!",
+      text: "Write something interesting:",
+      type: "input",
+      showCancelButton: true,
+      closeOnConfirm: false,
+      animation: "slide-from-top",
+      inputPlaceholder: "Write something"
+    },
+    function(inputValue){
+      if (inputValue === false) return false;
+
+      if (inputValue === "") {
+        swal.showInputError("You need to write something!");
+        return false
+      }
+
+      swal("Excelente!", "", "success");
+      attrs.find("tspan").text(inputValue);
+  });
 });
