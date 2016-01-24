@@ -58,6 +58,10 @@
                 <h4 class="card-title grey-text text-darken-4">Diagramas</h4>
 
                 <!--diagramas-->
+                <div class="content" >
+                  <div class="row" id="content">
+                  </div>
+                </div>
 
             </div>
 
@@ -65,7 +69,11 @@
 
 
 
-
+    <div class="fixed-action-btn horizontal click-to-toggle" style="bottom: 15px; right: 24px;">
+      <a class="btn-floating btn-large blue" href="/showDiagram/">
+        <i class="large mdi-navigation-menu"></i>
+      </a>
+    </div>
 
 
     <!-- ================================================
@@ -84,6 +92,19 @@
     <!-- sparkline -->
     <script type="text/javascript" src="/js/plugins/sparkline/jquery.sparkline.min.js"></script>
     <script type="text/javascript" src="/js/plugins/sparkline/sparkline-script.js"></script>
+    <script>
+      $(document).ready(function(){
+        $.get('/getDiagrams/', function(data){
+          console.log(data);
+          $(data.result).each(function(i,diagram){
+            var html = '<div class="col s4"><a href="/showDiagram/?id='+diagram.id+'">'+diagram.name+'</a></div>';
+            $('#content').append(html);
+          });
+        });
+        $(".dropdown-button").dropdown();
+        $('select').material_select();
+      });
+    </script>
 
 
 </body>
