@@ -36,6 +36,7 @@ module.exports.routes = {
   'get /login':{view: 'login'},
   'post /login' :'LoginController.login',
   '/profile' : {view: 'profile'},
+  'get /workspace' : {view: 'workspace_material'}
 
   /***************************************************************************
   *                                                                          *

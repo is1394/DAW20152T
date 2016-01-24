@@ -3,7 +3,6 @@ var passport = require('passport') , FacebookStrategy = require('passport-facebo
 
 var verifyHandler = function(token, tokenSecret, profile, done) {
   process.nextTick(function() {
-
     User.findOne({uid: profile.id}, function(err, user) {
       if (user) {
         return done(null, user);
@@ -14,6 +13,7 @@ var verifyHandler = function(token, tokenSecret, profile, done) {
           uid: profile.id,
           name: profile.displayName
         };
+        console.log(data);
 
         if (profile.emails && profile.emails[0] && profile.emails[0].value) {
           data.email = profile.emails[0].value;
@@ -67,7 +67,7 @@ module.exports.http = {
     }, verifyHandler));
 
     passport.use(new TwitterStrategy({
-      consumerKey: ' XbFMxSuJ6se3kLWdNrFfuFNvM',
+      consumerKey: 'fgcm3UgHIg4px3mOSATDeiqFK',
       consumerSecret: 'LMFji7RAmMSi9lnBAlhDHfHq8EPR7KAi3WCCq2eSTqvMdPqEC4',
       callbackURL: 'http://127.0.0.1:1337/auth/twitter/callback'
     }, verifyHandler));

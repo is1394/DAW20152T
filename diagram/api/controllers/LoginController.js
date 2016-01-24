@@ -13,10 +13,12 @@ module.exports = {
 				if (result.autenticacionResult === true){
 					req.session.auth = true;
 					client.wsInfoUsuario({usuario: username},function(err,result){
-						firstname = result.wsInfoUsuarioResult.diffgram.NewDataSet.INFORMACIONUSUARIO.NOMBRES;
-						lastname= result.wsInfoUsuarioResult.diffgram.NewDataSet.INFORMACIONUSUARIO.APELLIDOS;
-						name = firstname + " " + lastname;
-						req.session.user = name ;
+						firstname_ = result.wsInfoUsuarioResult.diffgram.NewDataSet.INFORMACIONUSUARIO.NOMBRES;
+						lastname_= result.wsInfoUsuarioResult.diffgram.NewDataSet.INFORMACIONUSUARIO.APELLIDOS;
+						name_ = firstname_ + " " + lastname_;
+						// User.create({provider:"ESPOL",uid:"12345",name:name_,firstname:firstname_,lastname:lastname_}).exec(console.log("cree el usuario"));
+						User.create({provider:"ESPOL",uid:"12345",name:"Holi",firstname:"holi",lastname:"holio"});
+						req.session.user = name_ ;
 						res.redirect('/profile');
 					});
 				}

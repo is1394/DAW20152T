@@ -1,7 +1,7 @@
 var graph = new joint.dia.Graph();
 var workspace = new joint.dia.Paper({
   el: $('#workspace'),
-  width: 800,
+  width: 1326,
   height: 1400,
   gridSize: 1,
   model: graph
@@ -152,7 +152,7 @@ $(document).ready(function(){
       if (inputValue === false) return false;
       if (inputValue === "") {
         swal.showInputError("Inserte por favor el tipo de relación");
-        return false
+        return false;
       }
       swal("Excelente","", "success");
       link = new joint.dia.Link({
@@ -183,4 +183,3 @@ $(document).ready(function(){
     });
   });
 });
-

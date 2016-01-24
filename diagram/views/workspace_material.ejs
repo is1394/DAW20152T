@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Proyecto de Daw</title>
+    <meta name="description" content="Proyecto de daw">
+    <meta name="author" content="Grupo de la muerte">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link href="/styles/materialize.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/styles/sweetalert.css">
+    <link rel="stylesheet" type="text/css" href="/styles/workspace_material.css">
+    <link href="styles/profile.css" type="text/css" rel="stylesheet" media="screen,projection">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <style>
+        body{
+            /*background: #e3f2fd ;*/
+        }
+    </style>
+  </head>
+  <body >
+    <!--start header-->
+    <!-- START HEADER -->
+    <header id="header" class="page-topbar">
+        <!-- start header nav-->
+        <div class="navbar-fixed">
+            <nav class="cyan">
+                <div class="nav-wrapper">
+
+                    <ul class="left">
+                      <li class="no-hover"><img src="images/login-logo.png" style="margin-left:-10px;  margin-top:0em; height:60px;"></li>
+                      <li><h1 class="logo-wrapper"><a href="/" class="brand-logo darken-1">ER-Diagram</a></h1></li>
+                    </ul>
+
+
+                </div>
+            </nav>
+        </div>
+        <!-- end header nav-->
+    </header>
+    <div class="row">
+      <div class="col s11 m11 l11">
+        <div class="row">
+            <div class="card-panel yellow lighten-4" style="width:75%;" >
+                <span contenteditable id="diagram_name" style="font-size:2em; margin-top:1em;">Nombre del Diagrama</h4>
+            </div>
+            <div style="position:absolute; top:70px; right:20px;">
+                <!-- Dropdown Profile--->
+                 <ul id="profile" class="dropdown-content">
+                   <li><a href="/profile">Perfil</a></li>
+                   <li class="divider"></li>
+                   <li><a href="#">Cerrar Sesi&oacute;n</a></li>
+                 </ul>
+
+                <ul class="hide-on-med-and-down"style="height:35px;">
+                    <li><a  style="height:35px;"class="dropdown-button" data-activates="profile" href="#"><i style="height:35px; margin-top:-0.5em"class="material-icons">perm_identity</i></a></li>
+                </ul>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+    <!--end header-->
+    <!--start main-->
+    <div class="row">
+
+        <div class="fixed-action-btn horizontal click-to-toggle" style="bottom: 15px; right: 24px;">
+            <a class="btn-floating btn-large blue">
+              <i class="large mdi-navigation-menu"></i>
+            </a>
+            <ul>
+              <li><a class="btn-floating blue darken-1 tooltipped" data-position="top" data-delay="50" data-tooltip="Nueva Tabla" id="item1"><i class="material-icons">queue</i></a></li>
+              <li><a class="btn-floating blue darken-1 tooltipped" data-position="top" data-delay="50" data-tooltip="Nueva Relacion" id="item2"><i class="material-icons">call_made</i></a></li>
+              <li><a class="btn-floating blue darken-1 tooltipped" data-position="top" data-delay="50" data-tooltip="Guardar" id="save"><i class="material-icons">system_update_alt</i></a></li>
+              <li><a class="btn-floating blue darken-1 tooltipped" data-position="top" data-delay="50" data-tooltip="Cargar" id="load"><i class="material-icons">present_to_all</i></a></li>
+            </ul>
+          </div>
+      <div class="col s12 m12 l12" >
+        <div id="workspace"></div>
+      </div>
+    </div>
+
+    <script>
+    $(document).ready(function(){
+        $('.tooltipped').tooltip({delay: 50});
+    });
+
+    </script>
+    <!--end main-->
+    <script src="js/jquery.min.js"></script>
+    <script src="/js/sweetalert.min.js"></script>
+    <script src="/js/lodash.min.js"></script>
+    <script src="/js/backbone-min.js"></script>
+    <script src="/js/joint.js"></script>
+    <script src="/js/workspace.js"></script>
+  </body>
+</html>

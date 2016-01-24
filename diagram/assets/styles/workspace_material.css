@@ -1,4 +1,4 @@
-#workspace{ border:1px solid #a7a7a7; }
+/*#workspace{ border:5px solid #bdbdbd; }*/
 nav{ background-color: #00838f; }
 nav ul li{ padding-left: 1em; }
 #toolbox{ padding-left: 2em; }
@@ -16,5 +16,3 @@ nav ul li{ padding-left: 1em; }
 .caret {
   margin-top:-20px;
 }
-
-

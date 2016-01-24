@@ -13,14 +13,13 @@
 
   <link href="styles/materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
   <link href="styles/profile.css" type="text/css" rel="stylesheet" media="screen,projection">
+
     <!-- Custome CSS-->
-    <link href="styles/custom-style.css" type="text/css" rel="stylesheet" media="screen,projection">
     <!-- CSS style Horizontal Nav (Layout 03)-->
     <link href="styles/style-horizontal.css" type="text/css" rel="stylesheet" media="screen,projection">
 
 
   <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
-  <link href="styles/prism.css" type="text/css" rel="stylesheet" media="screen,projection">
   <link href="/js/plugins/perfect-scrollbar/perfect-scrollbar.css" type="text/css" rel="stylesheet" media="screen,projection">
   <link href="/js/plugins/chartist-js/chartist.min.css" type="text/css" rel="stylesheet" media="screen,projection">
 </head>
@@ -33,8 +32,6 @@
       <div class="loader-section section-right"></div>
   </div>
 
-    <!-- //////////////////////////////////////////////////////////////////////////// -->
-
     <!-- START HEADER -->
     <header id="header" class="page-topbar">
         <!-- start header nav-->
@@ -43,9 +40,8 @@
                 <div class="nav-wrapper">
 
                     <ul class="left">
-                      <li class="no-hover"><a href="#" data-activates="slide-out" class="menu-sidebar-collapse btn-floating btn-flat btn-medium waves-effect waves-light cyan"><i class="mdi-navigation-menu" ></i></a></li>
-
-                      <li><h1 class="logo-wrapper"><a href="/" class="brand-logo darken-1">ER-Diagram</a> <span class="logo-text">Materialize</span></h1></li>
+                      <li class="no-hover"><img src="images/login-logo.png" style="  margin-top:0em; height:60px;"></li>
+                      <li><h1 class="logo-wrapper"><a href="/" class="brand-logo darken-1">ER-Diagram</a></h1></li>
                     </ul>
 
 
@@ -55,463 +51,17 @@
         <!-- end header nav-->
     </header>
 
+    <div id="main">
+            <h4 style="font-size:1em;padding-right:1em;" class="right-align card-title grey-text"> <i class="mdi-social-person-outline prefix"></i> <%=req.session.user  %> </h4>
 
-  <!-- End Page Loading -->
+            <div style="padding:3em; height:100%" class="card-panel teal lighten-5">
+                <h4 class="card-title grey-text text-darken-4">Diagramas</h4>
 
-
-
-  <!-- //////////////////////////////////////////////////////////////////////////// -->
-
-  <!-- START MAIN -->
-  <div id="main">
-    <!-- START WRAPPER -->
-    <div class="wrapper">
-
-      <!-- START LEFT SIDEBAR NAV-->
-      <aside id="left-sidebar-nav">
-        <ul id="slide-out" class="side-nav leftside-navigation">
-            <li class="user-details cyan darken-2">
-                <div class="row">
-                    <div class="col col s4 m4 l4">
-                        <img src="images/avatar.jpg" alt="" class="circle responsive-img valign profile-image">
-                    </div>
-                    <div class="col col s8 m8 l8">
-                        <ul id="profile-dropdown" class="dropdown-content">
-                            <li><a href="#"><i class="mdi-action-face-unlock"></i> Perfil</a>
-                            </li>
-                            <li><a href="#"><i class="mdi-action-settings"></i> Configuracion</a>
-                            </li>
-                            <li><a href="#"><i class="mdi-communication-live-help"></i> Ayuda</a>
-                            </li>
-                            <li class="divider"></li>
-                            <li><a href="#"><i class="mdi-action-lock-outline"></i> Bloquear</a>
-                            </li>
-                            <li><a href="#"><i class="mdi-hardware-keyboard-tab"></i> Cerrar Sesion</a>
-                            </li>
-                        </ul>
-                        <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown">Luis Jacome<i class="mdi-navigation-arrow-drop-down right"></i></a>
-                        <p class="user-roal">Administrator</p>
-                    </div>
-                </div>
-            </li>
-            <li class="bold"><a href="index.html" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Inicio</a>
-            </li>
-
-            <li class="no-padding">
-                <ul class="collapsible collapsible-accordion">
-
-                    <li class="bold"><a class="collapsible-header  waves-effect waves-cyan active"><i class="mdi-image-palette"></i> Tablero</a>
-                        <div class="collapsible-body">
-                            <ul>
-                                <li><a href="workspace_material.html">Workspace</a>
-                                </li>
-                                <li><a href="base_material.html">Sobre la Aplicacion</a>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </li>
-
-                </ul>
-            </li>
-            <li class="li-hover"><div class="divider"></div></li>
-
-            <li class="li-hover"><div class="divider"></div></li>
-
-            </li>
-        </ul>
-        <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only cyan"><i class="mdi-navigation-menu"></i></a>
-      </aside>
-      <!-- END LEFT SIDEBAR NAV-->
-
-      <!-- //////////////////////////////////////////////////////////////////////////// -->
-
-      <!-- START CONTENT -->
-      <section id="content">
-
-        <!--start container-->
-        <div class="container">
-
-          <div id="profile-page" class="section">
-            <!-- profile-page-header -->
-            <div id="profile-page-header" class="card">
-                <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="images/user-profile-bg.jpg" alt="user background">
-                </div>
-                <figure style="margin-top:-4em;" class="card-profile-image">
-                    <img src="images/avatar.jpg" alt="profile image" class="circle z-depth-2 responsive-img activator">
-                </figure>
-                <div class="card-content">
-                  <div class="row">
-                    <div class="col s3 offset-s2">
-                        <h4 class="card-title grey-text text-darken-4"><%=req.session.user  %></h4>
-                        <p class="medium-small grey-text">Project Parther</p>
-                    </div>
-                    <div class="col s2 center-align">
-                        <h4 class="card-title grey-text text-darken-4">10+</h4>
-                        <p class="medium-small grey-text">Experiencia Laboral</p>
-                    </div>
-                    <div class="col s2 center-align">
-                        <h4 class="card-title grey-text text-darken-4">6</h4>
-                        <p class="medium-small grey-text">Proyectos Finalizados</p>
-                    </div>
-                    <div class="col s2 center-align">
-                        <h4 class="card-title grey-text text-darken-4">$ 1,253,000</h4>
-                        <p class="medium-small grey-text">Busness Profit</p>
-                    </div>
-                    <div class="col s1 right-align">
-                      <a class="btn-floating activator waves-effect waves-light darken-2 right">
-                          <i class="mdi-action-perm-identity"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-reveal">
-                    <p>
-                      <span class="card-title grey-text text-darken-4">Luis Jacome <i class="mdi-navigation-close right"></i></span>
-                      <span><i class="mdi-action-perm-identity cyan-text text-darken-2"></i> Project Partner</span>
-                    </p>
-
-                    <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-
-                    <p><i class="mdi-action-perm-phone-msg cyan-text text-darken-2"></i> +593 (9)85813043 </p>
-                    <p><i class="mdi-communication-email cyan-text text-darken-2"></i> lejacome@lionsolution.net</p>
-                    <p><i class="mdi-social-cake cyan-text text-darken-2"></i> 18 Junio 1990</p>
-                    <p><i class="mdi-device-airplanemode-on cyan-text text-darken-2"></i> BAR - AUS</p>
-                </div>
-            </div>
-            <!--/ profile-page-header -->
-
-            <!-- profile-page-content -->
-            <div id="profile-page-content" class="row">
-              <!-- profile-page-sidebar-->
-              <div id="profile-page-sidebar" class="col s12 m4">
-                <!-- Profile About  -->
-                <div class="card light-blue">
-                  <div class="card-content white-text">
-                    <span class="card-title">Sobre mi!</span>
-                    <p>Soy un desarollador del grupo de la muerte en la materia Desarrollo de Aplicaciones Web en el 2015 termino II.</p>
-                  </div>
-                </div>
-                <!-- Profile About  -->
-
-                <!-- Profile About Details  -->
-                <ul id="profile-page-about-details" class="collection z-depth-1">
-                  <li class="collection-item">
-                    <div class="row">
-                      <div class="col s5 grey-text darken-1"><i class="mdi-action-wallet-travel"></i> Proyecto</div>
-                      <div class="col s7 grey-text text-darken-4 right-align">Primer Parcial DAW</div>
-                    </div>
-                  </li>
-                  <li class="collection-item">
-                    <div class="row">
-                      <div class="col s5 grey-text darken-1"><i class="mdi-social-poll"></i> Habilidades</div>
-                      <div class="col s7 grey-text text-darken-4 right-align">HTML, CSS</div>
-                    </div>
-                  </li>
-                  <li class="collection-item">
-                    <div class="row">
-                      <div class="col s5 grey-text darken-1"><i class="mdi-social-domain"></i> Lugar</div>
-                      <div class="col s7 grey-text text-darken-4 right-align">Gye, EC</div>
-                    </div>
-                  </li>
-                  <li class="collection-item">
-                    <div class="row">
-                      <div class="col s5 grey-text darken-1"><i class="mdi-social-cake"></i> Fecha de Nacimiento</div>
-                      <div class="col s7 grey-text text-darken-4 right-align">18 Junio, 1991</div>
-                    </div>
-                  </li>
-                </ul>
-                <!--/ Profile About Details  -->
-
-                <!-- Profile About  -->
-                <div class="card amber darken-2">
-                  <div class="card-content white-text center-align">
-                    <p class="card-title"><i class="mdi-social-group-add"></i> 3685</p>
-                    <p>Followers</p>
-                  </div>
-                </div>
-                <!-- Profile About  -->
-
-                <!-- Profile feed  -->
-                <ul id="profile-page-about-feed" class="collection z-depth-1">
-                  <li class="collection-item avatar">
-                    <img src="images/avatar.jpg" alt="" class="circle">
-                    <span class="title">Proyecto DAW</span>
-                    <p>Tareas asignadas a los nuevos cambios.
-                      <br> <span class="ultra-small">Second Line</span>
-                    </p>
-                    <a href="#!" class="secondary-content"><i class="mdi-action-grade"></i></a>
-                  </li>
-                  <li class="collection-item avatar">
-                    <i class="mdi-file-folder circle"></i>
-                    <span class="title">Nuevo Proyecto</span>
-                    <p>Primera Linea del Proyecto DAW
-                      <br> <span class="ultra-small">Second Line</span>
-                    </p>
-                    <a href="#!" class="secondary-content"><i class="mdi-social-domain"></i></a>
-                  </li>
-                  <li class="collection-item avatar">
-                    <i class="mdi-action-assessment circle green"></i>
-                    <span class="title">Nuevo Commit</span>
-                    <p>Diseno de las interfaz de Perfil
-                      <br> <span class="ultra-small">Github</span>
-                    </p>
-                    <a href="#!" class="secondary-content"><i class="mdi-editor-attach-money"></i></a>
-                  </li>
-                  <li class="collection-item avatar">
-                    <i class="mdi-av-play-arrow circle red"></i>
-                    <span class="title">Latest News</span>
-                    <p>company management news
-                      <br> <span class="ultra-small">Second Line</span>
-                    </p>
-                    <a href="#!" class="secondary-content"><i class="mdi-action-track-changes"></i></a>
-                  </li>
-                </ul>
-                <!-- Profile feed  -->
-
-                <!-- task-card -->
-                <ul id="task-card" class="collection with-header">
-                  <li class="collection-header cyan">
-                      <h4 class="task-card-title">Mis Tareas</h4>
-                      <p class="task-card-date">Diciembre 23, 2015</p>
-                  </li>
-                  <li class="collection-item dismissable">
-                      <input type="checkbox" id="task1" />
-                      <label for="task1">Crear Web App UI. <a href="#" class="secondary-content"><span class="ultra-small">Hoy</span></a>
-                      </label>
-                      <span class="task-cat teal">Web App</span>
-                  </li>
-                  <li class="collection-item dismissable">
-                      <input type="checkbox" id="task2" />
-                      <label for="task2">Check the new API standerds. <a href="#" class="secondary-content"><span class="ultra-small">Monday</span></a>
-                      </label>
-                      <span class="task-cat purple">Web API</span>
-                  </li>
-                  <li class="collection-item dismissable">
-                      <input type="checkbox" id="task3" checked="checked" />
-                      <label for="task3">Check the new Mockup of ABC. <a href="#" class="secondary-content"><span class="ultra-small">Wednesday</span></a>
-                      </label>
-                      <span class="task-cat pink">Mockup</span>
-                  </li>
-                  <li class="collection-item dismissable">
-                      <input type="checkbox" id="task4" checked="checked" disabled="disabled" />
-                      <label for="task4">I did it !</label>
-                      <span class="task-cat cyan">Mobile App</span>
-                  </li>
-                </ul>
-                <!-- task-card -->
-
-
-
-
-
-                <!-- Map Card -->
-                <div class="map-card">
-
-                </div>
-                <!-- Map Card -->
-
-              </div>
-              <!-- profile-page-sidebar-->
-
-              <!-- profile-page-wall -->
-              <div id="profile-page-wall" class="col s12 m8">
-                <!-- profile-page-wall-share -->
-                <div id="profile-page-wall-share" class="row">
-                  <div class="col s12">
-                    <ul class="tabs tab-profile z-depth-1 light-blue">
-                      <li class="tab col s3"><a class="white-text waves-effect waves-light active" href="#UpdateStatus"><i class="mdi-editor-border-color"></i> Actualizar Status</a>
-                      </li>
-                      <li class="tab col s3"><a class="white-text waves-effect waves-light" href="#AddPhotos"><i class="mdi-image-camera-alt"></i> Anadir Fotos</a>
-                      </li>
-                      <li class="tab col s3"><a class="white-text waves-effect waves-light" href="#CreateAlbum"><i class="mdi-image-photo-album"></i> Crear Album</a>
-                      </li>
-                    </ul>
-                    <!-- UpdateStatus-->
-                    <div id="UpdateStatus" class="tab-content col s12  grey lighten-4">
-                      <div class="row">
-                        <div class="col s2">
-                          <img src="images/avatar.jpg" alt="" class="circle responsive-img valign profile-image-post">
-                        </div>
-                        <div class="input-field col s10">
-                          <textarea id="textarea" row="2" class="materialize-textarea"></textarea>
-                          <label for="textarea" class="">Que estas pensando?</label>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col s12 m6 share-icons">
-                          <a href="#"><i class="mdi-image-camera-alt"></i></a>
-                          <a href="#"><i class="mdi-action-account-circle"></i></a>
-                          <a href="#"><i class="mdi-hardware-keyboard-alt"></i></a>
-                          <a href="#"><i class="mdi-communication-location-on"></i></a>
-                        </div>
-                        <div class="col s12 m6 right-align">
-                           <!-- Dropdown Trigger -->
-                            <a class='dropdown-button btn' href='#' data-activates='profliePost'><i class="mdi-action-language"></i> Publico</a>
-
-                            <!-- Dropdown Structure -->
-                            <ul id='profliePost' class='dropdown-content'>
-                              <li><a href="#!"><i class="mdi-action-language"></i> Publico</a></li>
-                              <li><a href="#!"><i class="mdi-action-face-unlock"></i> Amigos</a></li>
-                              <li><a href="#!"><i class="mdi-action-lock-outline"></i> Solo yo</a></li>
-                            </ul>
-
-                            <a class="waves-effect waves-light btn"><i class="mdi-maps-rate-review left"></i>Publicar</a>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- AddPhotos -->
-                    <div id="AddPhotos" class="tab-content col s12  grey lighten-4">
-                      <div class="row">
-                        <div class="col s2">
-                          <img src="images/avatar.jpg" alt="" class="circle responsive-img valign profile-image-post">
-                        </div>
-                        <div class="input-field col s10">
-                          <textarea id="textarea" row="2" class="materialize-textarea"></textarea>
-                          <label for="textarea" class="">Share your favorites photos!</label>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col s12 m6 share-icons">
-                          <a href="#"><i class="mdi-image-camera-alt"></i></a>
-                          <a href="#"><i class="mdi-action-account-circle"></i></a>
-                          <a href="#"><i class="mdi-hardware-keyboard-alt"></i></a>
-                          <a href="#"><i class="mdi-communication-location-on"></i></a>
-                        </div>
-                        <div class="col s12 m6 right-align">
-                           <!-- Dropdown Trigger -->
-                            <a class='dropdown-button btn' href='#' data-activates='profliePost2'><i class="mdi-action-language"></i> Public</a>
-
-                            <!-- Dropdown Structure -->
-                            <ul id='profliePost2' class='dropdown-content'>
-                              <li><a href="#!"><i class="mdi-action-language"></i> Public</a></li>
-                              <li><a href="#!"><i class="mdi-action-face-unlock"></i> Friends</a></li>
-                              <li><a href="#!"><i class="mdi-action-lock-outline"></i> Only Me</a></li>
-                            </ul>
-
-                            <a class="waves-effect waves-light btn"><i class="mdi-maps-rate-review left"></i>Post</a>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- CreateAlbum -->
-                    <div id="CreateAlbum" class="tab-content col s12  grey lighten-4">
-                      <div class="row">
-                        <div class="col s2">
-                          <img src="images/avatar.jpg" alt="" class="circle responsive-img valign profile-image-post">
-                        </div>
-                        <div class="input-field col s10">
-                          <textarea id="textarea" row="2" class="materialize-textarea"></textarea>
-                          <label for="textarea" class="">Create awesome album.</label>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col s12 m6 share-icons">
-                          <a href="#"><i class="mdi-image-camera-alt"></i></a>
-                          <a href="#"><i class="mdi-action-account-circle"></i></a>
-                          <a href="#"><i class="mdi-hardware-keyboard-alt"></i></a>
-                          <a href="#"><i class="mdi-communication-location-on"></i></a>
-                        </div>
-                        <div class="col s12 m6 right-align">
-                           <!-- Dropdown Trigger -->
-                            <a class='dropdown-button btn' href='#' data-activates='profliePost3'><i class="mdi-action-language"></i> Public</a>
-
-                            <!-- Dropdown Structure -->
-                            <ul id='profliePost3' class='dropdown-content'>
-                              <li><a href="#!"><i class="mdi-action-language"></i> Public</a></li>
-                              <li><a href="#!"><i class="mdi-action-face-unlock"></i> Friends</a></li>
-                              <li><a href="#!"><i class="mdi-action-lock-outline"></i> Only Me</a></li>
-                            </ul>
-
-                            <a class="waves-effect waves-light btn"><i class="mdi-maps-rate-review left"></i>Post</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!--/ profile-page-wall-share -->
-
-                <!-- profile-page-wall-posts -->
-                <div id="profile-page-wall-posts"class="row">
-                  <div class="col s12">
-                      <!-- medium -->
-
-
-                      <!-- medium video -->
-                      <div id="profile-page-wall-post" class="card">
-                        <div class="card-profile-title">
-                          <div class="row">
-                            <div class="col s1">
-                              <img src="images/avatar.jpg" alt="" class="circle responsive-img valign profile-post-uer-image">
-                            </div>
-                            <div class="col s10">
-                              <p class="grey-text text-darken-4 margin">Luis Jacome</p>
-                              <span class="grey-text text-darken-1 ultra-small">Shared publicly  -  26 Jun 2015</span>
-                            </div>
-                            <div class="col s1 right-align">
-                              <i class="mdi-navigation-expand-more"></i>
-                            </div>
-                          </div>
-                          <div class="row">
-                            <div class="col s12">
-                              <p>Este es una publicacion en mi muro. </p>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="card-image profile-medium">
-                          <div class="video-container no-controls">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/EFnx9MSPUIk" frameborder="0" allowfullscreen></iframe>
-                          </div>
-
-                        </div>
-                        <div class="card-content">
-                          <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-                        </div>
-                        <div class="card-action row">
-                          <div class="col s4 card-action-share">
-                            <a href="#">Me Gusta</a>
-                            <a href="#">Compartir</a>
-                          </div>
-
-                          <div class="input-field col s8 margin">
-                            <input id="profile-comments" type="text" class="validate margin">
-                            <label for="profile-comments" class="">Comentarios</label>
-                          </div>
-                        </div>
-                      </div>
-
-
-
-
-
-
-                      </div>
-                  </div>
-                </div>
-                <!--/ profile-page-wall-posts -->
-
-              </div>
-              <!--/ profile-page-wall -->
+                <!--diagramas-->
 
             </div>
-          </div>
-        </div>
-        </div>
-        <!--end container-->
-      </section>
-      <!-- END CONTENT -->
-
-      <!-- //////////////////////////////////////////////////////////////////////////// -->
-      <!-- START RIGHT SIDEBAR NAV-->
-
-      <!-- LEFT RIGHT SIDEBAR NAV-->
 
     </div>
-    <!-- END WRAPPER -->
-
-  </div>
-  <!-- END MAIN -->
-
 
 
 
@@ -528,19 +78,12 @@
     <script type="text/javascript" src="/js/materialize.js"></script>
     <!--prism-->
     <script type="text/javascript" src="/js/prism.js"></script>
-    <!--scrollbar-->
-    <script type="text/javascript" src="/js/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     <!-- chartist -->
     <script type="text/javascript" src="/js/plugins/chartist-js/chartist.min.js"></script>
 
     <!-- sparkline -->
     <script type="text/javascript" src="/js/plugins/sparkline/jquery.sparkline.min.js"></script>
     <script type="text/javascript" src="/js/plugins/sparkline/sparkline-script.js"></script>
-
-
-    <!--plugins.js - Some Specific JS codes for Plugin Settings-->
-    <script type="text/javascript" src="/js/plugins.js"></script>
-
 
 
 </body>

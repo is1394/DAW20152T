@@ -1,8 +1,6 @@
 
 module.exports = {
 
-  adapter: 'mongo',
-
   attributes: {
     provider: 'STRING',
     uid: 'STRING',
