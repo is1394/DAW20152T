@@ -110,9 +110,11 @@
         <h4>Compartir Diagrama</h4>
         <p>Env&iacute;e este ID a quien desee compartir el diagrama</p>
         <p id="key"></p>
+        <input type="text" value="<%= id %>">
       </div>
     </div>
 
+    <input type="hidden" value="<%= id %>" id="id_diagram">
     <script>
     $(document).ready(function(){
         $('.tooltipped').tooltip({delay: 50});
@@ -126,7 +128,7 @@
 
     </script>
     <!--end main-->
-    <script src="js/jquery.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
     <script src="/js/sweetalert.min.js"></script>
     <script src="/js/lodash.min.js"></script>
     <script src="/js/backbone-min.js"></script>

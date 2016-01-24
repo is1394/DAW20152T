@@ -174,21 +174,37 @@ $(document).ready(function(){
   $("#save").click(function(){
     var jsonString = JSON.stringify(graph);
     console.log(jsonString);
-    $.get("/Diagram/create?name="+$("#diagram_name").text()+"&autor="+$("#user_name").text()+"&content="+jsonString,function(data){
-        console.log("id " + data.id);
-        $("#key").text(data.id);
-        $.get("/Diagram/update/"+data.id+"?content="+jsonString,function(data){
-            console.log(data.content);
-        });
-    });
-    // console.log(jsonString);
+    $.post("/createDiagram/",
+      {
+        content: jsonString,
+        name:$("#diagram_name").text(),
+        autor:$("#user_name").text(),
+        id:$('#id_diagram').val(),
+      },
+      function(data){
+        console.log(data);
+        //console.log("id " + data.id);
+        //$("#key").text(data.id);
+        //$.get("/Diagram/update/"+data.id+"?content="+jsonString,function(data){ console.log(data.content); });
+      });
   });
   $("#load").click(function(){
-    $.getJSON("/Diagram/"+$("#diagram_id").val(),function(data){
+    var id = $('#id_diagram').val();
+    $.getJSON("/Diagram/"+id,function(data){
         // console.log("url: Diagram/"+ $("#key").text());
       graph.clear();
       console.log(data.content);
-      graph.fromJSON(data.content);
+      graph.fromJSON(JSON.parse(data.content));
+      $("#diagram_name").text(data.name);
     });
   });
+  var id = $('#id_diagram').val();
+  console.log(id);
+  $.getJSON("/Diagram/"+id,function(data){
+      graph.clear();
+      console.log(data.content);
+      graph.fromJSON(JSON.parse(data.content));
+      $("#diagram_name").text(data.name);
+    });
+
 });
