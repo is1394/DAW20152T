@@ -55,7 +55,7 @@
                  </ul>
 
                 <ul class="hide-on-med-and-down"style="height:35px;">
-                    <li><a  style="height:35px;"class="dropdown-button" data-activates="profile" href="#"><i style="height:35px; margin-top:-0.5em"class="material-icons">perm_identity</i></a></li>
+                    <li><a  style="height:35px;"class="dropdown-button" data-activates="profile" href="#"> <h4 style="font-size:1em;padding-right:1em;" class="right-align card-title grey-text"><i style="height:35px; margin-top:-0.5em"class="material-icons">perm_identity</i><span id="user_name"><%=req.session.user  %></span></h4> </a></li>
                 </ul>
             </div>
             <div style="clear:both;"></div>
@@ -73,7 +73,8 @@
               <li><a class="btn-floating blue darken-1 tooltipped" data-position="top" data-delay="50" data-tooltip="Nueva Tabla" id="item1"><i class="material-icons">queue</i></a></li>
               <li><a class="btn-floating blue darken-1 tooltipped" data-position="top" data-delay="50" data-tooltip="Nueva Relacion" id="item2"><i class="material-icons">call_made</i></a></li>
               <li><a class="btn-floating blue darken-1 tooltipped" data-position="top" data-delay="50" data-tooltip="Guardar" id="save"><i class="material-icons">system_update_alt</i></a></li>
-              <li><a class="btn-floating blue darken-1 tooltipped" data-position="top" data-delay="50" data-tooltip="Cargar" id="load"><i class="material-icons">present_to_all</i></a></li>
+              <li><a class="btn-floating blue darken-1 tooltipped modal-trigger" href="#modal1" data-position="top" data-delay="50" data-tooltip="Cargar" ><i class="material-icons">present_to_all</i></a></li>
+              <li><a class="btn-floating blue darken-1 tooltipped modal-trigger" href="#modal2" data-position="top" data-delay="50" data-tooltip="Compartir" ><i class="material-icons">loyalty</i></a></li>
             </ul>
           </div>
       <div class="col s12 m12 l12" >
@@ -81,9 +82,46 @@
       </div>
     </div>
 
+        <!-- Modal Load -->
+      <div id="modal1" class="modal">
+        <div class="modal-content">
+          <h4>Cargar Diagrama</h4>
+          <p>Inserte el ID del diagrama que desea cargar</p>
+          <div class="row fluid">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input placeholder="ID Diagrama" id="diagram_id" type="text" class="validate">
+                        <label for="ID Diagrama">ID Diagrama</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <a id ="load"class="waves-effect waves-light btn"><i class="material-icons left">present_to_all</i>Cargar</a>
+                        <!-- <input id="load" type="submit" class="waves-effect waves-light btn" value="Cargar"/> -->
+                    </div>
+                </div>
+            </form>
+         </div>
+        </div>
+      </div>
+
+      <!-- Modal Share -->
+    <div id="modal2" class="modal">
+      <div class="modal-content">
+        <h4>Compartir Diagrama</h4>
+        <p>Env&iacute;e este ID a quien desee compartir el diagrama</p>
+        <p id="key"></p>
+      </div>
+    </div>
+
     <script>
     $(document).ready(function(){
         $('.tooltipped').tooltip({delay: 50});
+    });
+
+
+    $(document).ready(function(){
+        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+        $('.modal-trigger').leanModal();
     });
 
     </script>

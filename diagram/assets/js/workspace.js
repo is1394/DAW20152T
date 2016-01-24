@@ -174,12 +174,21 @@ $(document).ready(function(){
   $("#save").click(function(){
     var jsonString = JSON.stringify(graph);
     console.log(jsonString);
+    $.get("/Diagram/create?name="+$("#diagram_name").text()+"&autor="+$("#user_name").text()+"&content="+jsonString,function(data){
+        console.log("id " + data.id);
+        $("#key").text(data.id);
+        $.get("/Diagram/update/"+data.id+"?content="+jsonString,function(data){
+            console.log(data.content);
+        });
+    });
+    // console.log(jsonString);
   });
   $("#load").click(function(){
-    $.getJSON('json/load.json',function(data){
+    $.getJSON("/Diagram/"+$("#diagram_id").val(),function(data){
+        // console.log("url: Diagram/"+ $("#key").text());
       graph.clear();
-      console.log(data);
-      graph.fromJSON(data);
+      console.log(data.content);
+      graph.fromJSON(data.content);
     });
   });
 });
