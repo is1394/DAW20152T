@@ -54,6 +54,10 @@ nav ul li{ padding-left: 1em; }
     margin-right: 1.2em;
 }
 
+#chatbox{
+    overflow: auto;
+}
+
 .message-content{
     margin: 0.5em;
 }
