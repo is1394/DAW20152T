@@ -16,3 +16,82 @@ nav ul li{ padding-left: 1em; }
 .caret {
   margin-top:-20px;
 }
+
+#modalchat{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 99999;
+    visibility: hidden;
+}
+.modalcontent{
+    position: absolute;
+    bottom: 60px;
+    right: 40px;
+    color:rgba(0,0,0,0.87);
+    background: #fcfcfc;
+    width: 320px;
+    height: 280px;
+    border: 1px solid #9e9e9e;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    /*shadows*/
+    -webkit-box-shadow: -2px 6px 52px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: -2px 6px 52px 1px rgba(0,0,0,0.75);
+    box-shadow: -2px 6px 52px 1px rgba(0,0,0,0.75);
+}
+
+#inputbox{
+    bottom: 0;
+    position: absolute;
+}
+
+#closechat{
+    float:right;
+    margin-right: 1.2em;
+}
+
+.message-content{
+    margin: 0.5em;
+}
+
+.received .message-user{
+    float:left;
+}
+.received .message-message{
+    float: left;
+}
+
+.sent .message-user{
+    float:right;
+}
+.sent .message-message{
+    float: right;
+}
+
+.sent > .message-message >.message-text > .text{
+    float: right;
+}
+.message-text{
+    padding-left:  0.5em;
+    padding-right:   0.5em;
+
+}
+.sent > .message-message > .message-text{
+    background:#3B94D9;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 0px solid #000000;
+}
+
+.received > .message-message > .message-text{
+    background:#E1E8ED ;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 0px solid #000000;
+}

@@ -7,18 +7,15 @@
     <title>Proyecto de Daw</title>
     <meta name="description" content="Proyecto de daw">
     <meta name="author" content="Grupo de la muerte">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
     <link href="/styles/materialize.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/styles/sweetalert.css">
     <link rel="stylesheet" type="text/css" href="/styles/workspace_material.css">
-    <link href="styles/profile.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="/styles/profile.css" type="text/css" rel="stylesheet" media="screen,projection">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <style>
-        body{
-            /*background: #e3f2fd ;*/
-        }
-    </style>
+
   </head>
   <body >
     <!--start header-->
@@ -30,7 +27,7 @@
                 <div class="nav-wrapper">
 
                     <ul class="left">
-                      <li class="no-hover"><img src="images/login-logo.png" style="margin-left:-10px;  margin-top:0em; height:60px;"></li>
+                      <li class="no-hover"><img src="/images/login-logo.png" style="margin-left:-10px;  margin-top:0em; height:60px;"></li>
                       <li><h1 class="logo-wrapper"><a href="/" class="brand-logo darken-1">ER-Diagram</a></h1></li>
                     </ul>
 
@@ -65,7 +62,7 @@
     <!--start main-->
     <div class="row">
 
-        <div class="fixed-action-btn horizontal click-to-toggle" style="bottom: 15px; right: 24px;">
+        <div class="fixed-action-btn horizontal click-to-toggle" style="top: 150px; right: 24px;">
             <a class="btn-floating btn-large blue">
               <i class="large mdi-navigation-menu"></i>
             </a>
@@ -77,6 +74,11 @@
               <li><a class="btn-floating blue darken-1 tooltipped modal-trigger" href="#modal2" data-position="top" data-delay="50" data-tooltip="Compartir" ><i class="material-icons">loyalty</i></a></li>
             </ul>
           </div>
+
+          <div class="fixed-action-btn horizontal click-to-toggle" style="bottom: 15px; right: 24px;">
+              <a class="btn-floating blue darken-1 tooltipped" data-position="top" data-delay="50" data-tooltip="Chat" id="button_chat">
+                <i class="material-icons">forum</i></a>
+        </div>
       <div class="col s12 m12 l12" >
         <div id="workspace"></div>
       </div>
@@ -114,6 +116,51 @@
       </div>
     </div>
 
+    <!--modal chat --->
+    <div id="modalchat" >
+        <div class="modalcontent">
+            <div class="row">
+                <h4 class="grey-text" style="font-size:1em; padding-left:1em;">Chat <i id="closechat" class="fa fa-times"></i></h4>
+
+                <hr class="grey-text" style="margin-left:1em; margin-rigth:1em;"/>
+                <div id="chatbox">
+                    <!--received -->
+                    <div class="received message-content col s12 m12 l12">
+                        <div class="message-user col s2 m2 l2">
+                            <p class="blue-text">Emisor</p>
+                        </div>
+                        <div class="message-message col s10 m10 l10">
+                            <div class="message-text">
+                                <p class="text">hola</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--sent -->
+                    <div class="sent message-content col s12 m12 l12">
+                        <div class="message-user col s2 m2 l2">
+                            <p class="grey-text">yo</p>
+                        </div>
+                        <div class="message-message col s10 m10 l10">
+                            <div class="message-text">
+                                <p class="text">hola</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="inputbox">
+                        <div class="col s10 m10 l10 input-field">
+                            <input placeholder="Escribe aqu&iacute;" name="usermsg" type="text" id="usermsg" size="63" />
+                        </div>
+                        <div class="col s2 m2 l2 input-field">
+                            <button id="submitmsg" class="btn-floating col-lg-2 col-md-2 blue darken-2"><i class="material-icons">play_arrow</i></button>
+                            <!-- <input name="submitmsg" type="submit"  id="submitmsg" value="Send" /> -->
+                        </div>
+                </div>
+            </div>
+        </div>
+      </div>
+
+
     <input type="hidden" value="<%= id %>" id="id_diagram">
     <script>
     $(document).ready(function(){
@@ -126,6 +173,16 @@
         $('.modal-trigger').leanModal();
     });
 
+    $("#button_chat").click(function(){
+        $("#modalchat").css("visibility","visible");
+    });
+
+    $("#closechat").click(function(){
+        $("#modalchat").css("visibility","hidden");
+    });
+
+    setInterval(500, function(){$('.lean-overlay').css('opacity','0');});
+
     </script>
     <!--end main-->
     <script src="/js/jquery.min.js"></script>
@@ -134,5 +191,6 @@
     <script src="/js/backbone-min.js"></script>
     <script src="/js/joint.js"></script>
     <script src="/js/workspace.js"></script>
+    <script src="/js/chat.js"></script>
   </body>
 </html>
