@@ -72,6 +72,8 @@
               <li><a class="btn-floating blue darken-1 tooltipped" data-position="top" data-delay="50" data-tooltip="Guardar" id="save"><i class="material-icons">system_update_alt</i></a></li>
               <li><a class="btn-floating blue darken-1 tooltipped modal-trigger" href="#modal1" data-position="top" data-delay="50" data-tooltip="Cargar" ><i class="material-icons">present_to_all</i></a></li>
               <li><a class="btn-floating blue darken-1 tooltipped modal-trigger" href="#modal2" data-position="top" data-delay="50" data-tooltip="Compartir" ><i class="material-icons">loyalty</i></a></li>
+              <li><a class="btn-floating blue darken-1 tooltipped " data-position="top" data-delay="50" data-tooltip="Guardar PDF" onclick="return xepOnline.Formatter.Format('workspace',{pageWidth:'11in', pageHeight:'8.5in',render:'download',srctype: 'svg'});" ><i class="fa fa-file-pdf-o"></i></a></li>
+
             </ul>
           </div>
 
@@ -193,5 +195,6 @@
     <script src="/js/joint.js"></script>
     <script src="/js/workspace.js"></script>
     <script src="/js/chat.js"></script>
+    <script src="/js/xepOnline.jqPlugin.js"></script>
   </body>
 </html>

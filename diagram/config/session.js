@@ -67,11 +67,11 @@ module.exports.session = {
   *                                                                          *
   ***************************************************************************/
 
-  adapter: 'mongo',
-  host: 'localhost',
-  port: 27017,
-  db: 'project',
-  collection: 'sessions',
+  // adapter: 'mongo',
+  // host: 'localhost',
+  // port: 27017,
+  // db: 'project',
+  // collection: 'sessions',
 
   /***************************************************************************
   *                                                                          *
